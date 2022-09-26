@@ -1,10 +1,119 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>My Cool Website</title>
-   </head>
-   <body>
-      <h1>Welcome to my website! ⭐️</h1>
-      <p>How was your day? 🎉</p>
-   </body>
-</html>
+<style type='text/css'>
+        .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #005290;
+        font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #005290;
+        }
+        .sidebarHeader[embeddedService-chatHeader_chatHeader] {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        position: relative;
+        padding: 0px 14px;
+        height: 100%;
+        }
+        .sidebarHeader img[embeddedService-chatHeader_chatHeader] {
+        margin-right: 8px;
+        max-height: 52px;
+        max-width: 35px;
+        border-radius: 8px;
+        padding: 10px 10px;
+        background: #fff;
+        }
+        .sidebarHeader[embeddedService-chatHeader_chatHeader], .loadingAnimation[embeddedService-chatHeader_chatHeader], .headerAnnouncement[embeddedService-chatHeader_chatHeader] {
+        width: 100%;
+        max-width: 100%;
+        background-color: inherit;
+        border-bottom-right-radius: 82px;
+        border-bottom-left-radius: 82px;
+        transition: background-color 1s ease;
+        }
+        [embeddedService-chatHeader_chatHeader-host] {
+        direction: inherit;
+        height: 91px;
+        border-radius: 18%;
+        }
+        button.minimizeButton:hover[embeddedService-chatHeader_chatHeader]:before {
+        right: 46px;
+        }
+        button:hover[embeddedService-chatHeader_chatHeader]:before {
+        content: " ";
+        position: absolute;
+        top: 23px;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton
+        {
+        font-size:100% !important;
+        }
+        
+        .sidebarHeader[embeddedService-chatHeader_chatHeader] h2 {
+        color:#fff !important;
+        }
+        
+        button[embeddedService-chatHeader_chatHeader] {
+        font-size: 6px !important;
+        }
+    </style>
+    
+    
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = false; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://enphase--sbprontoqa.sandbox.my.salesforce.com',
+			'https://enphase--sbprontoqa.sandbox.my.site.com/customersupport',
+			gslbBaseURL,
+			'00D63000000Mq2L',
+			'X365_Pronto',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
+				deploymentId: '572630000008eB2',
+				buttonId: '573630000008fZs',
+				baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I630000004DS3EAM_18313aa1926',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://enphase--sbprontoqa.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+    
+    function openchat(){
+    		embedded_svc.bootstrapEmbeddedService();
+
+    }
+    </script>
+
+<a onclick="openchaxt();">Chat With Us</a>
